@@ -6,12 +6,12 @@ L’esercizio è suddiviso in varie milestones ed è importante svilupparle nell
 
 # Milestone 1
 Creare un form che invii in GET la lunghezza desiderata della password. Una nostra funzione utilizzerà questo dato per generare una password casuale (composta da lettere minuscole, maiuscole, numeri e/o simboli) della lunghezza specificata, da restituire all’utente.
-Scirivamo tutta la logica ed il layout in un unico file index.php
+Scriviamo tutta la logica ed il layout in un unico file index.php
 
 __Procedura__
-1. Creazione del form per richiedere la lunghezza della password
-2. inviamo il risultato tramite $_GET
-3. Creazione di una funzione per generare una password casuale (composta da lettere minuscole, maiuscole, numeri e/o simboli) e con la lunghezza richiesta
+1. Creazione del form per richiedere la lunghezza della password √
+2. inviamo il risultato tramite $_GET √
+3. Creazione di una funzione per generare una password casuale (composta da lettere minuscole, maiuscole, numeri e/o simboli) e con la lunghezza richiesta√
 
 __note__
 scriviamo tutta la logica in un unico file
