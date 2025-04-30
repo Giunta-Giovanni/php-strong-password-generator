@@ -21,7 +21,7 @@ $userPassword = $_SESSION['userGeneratedPassword'];
 </head>
 <body>
 
-<div class="container text-center">
+<div class="container text-center my-3">
         <h2 class="h5 mb-3">La tua Password</h2>
         <div class="alert alert-info fw-bold">
             <?php 
