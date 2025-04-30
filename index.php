@@ -1,20 +1,29 @@
-<!-- importiamo i file necessari -->
 <?php 
-// file functions
-require_once 'functions.php';
-?>
+    //avviamo la sessione
+    session_start();
 
-<!-- dati utente dall'url -->
-<?php 
+    // importiamo le funzioni
+    include_once 'functions.php';
+
+
     // settiamo il valore iniziale della variabile 
     $userPasswordLength = 0;
 
     // ricaviamoci la lunghezza richiesta dal cliente validandola, e sostituendola nella variabile
-    if(isset($_GET['passwordLength']) && is_numeric($_GET['passwordLength']) && $_GET['passwordLength'] >= 4){
-        $userPasswordLength = (int) $_GET['passwordLength'];
+    if(isset($_POST['passwordLength']) && is_numeric($_POST['passwordLength']) && $_POST['passwordLength'] >= 4){
+        $userPasswordLength = (int) $_POST['passwordLength'];
     };
 
-    // var_dump($userPasswordLength)
+    $userGeneratedPassword = generatePassword($userPasswordLength);
+
+    //inseriamo il risultato nella sessione 
+    $_SESSION['userGeneratedPassword'] = $userGeneratedPassword;
+
+    // se la sessione è stata riempita
+    if($_SESSION['userGeneratedPassword']){
+        header('Location: ./result.php');
+        exit;
+    }
 ?>
 
 
@@ -34,9 +43,8 @@ require_once 'functions.php';
         </h1>
     </header>
     
-    <main>
-        
-        <form method="GET" class="container mb-4">
+    <main>  
+        <form method="POST" class="container mb-4">
             <div class="mb-3">
                 <label for="passwordLength" class="form-label">Lunghezza Password</label>
                 <input 
@@ -47,27 +55,27 @@ require_once 'functions.php';
                     placeholder="Password minima 4 caratteri" 
                     required>
             </div>
+            <div class="row justify-content-center m-3">
+                <div class="col">
+                    <input type="checkbox">
+                    <label for="">letter</label>
+                </div>
+                <div class="col">
+                    <input type="checkbox">
+                    <label for="">number</label>
+                </div>
+                <div class="col">
+                    <input type="checkbox">
+                    <label for="">symbol</label>
+                </div>
+            </div>
+
             <div class="d-grid">
                 <button type="submit" class="btn btn-primary rounded-pill">
                     Invia
                 </button>
             </div>
         </form>
-
-        <div class="container text-center">
-            <h2 class="h5 mb-3">La tua Password</h2>
-            <div class="alert alert-info fw-bold">
-                <?php 
-                    if($userPasswordLength === 0 || $userPasswordLength === null){
-                        echo "Non hai generato nessuna password";
-                    } else {
-                        echo generatePassword($userPasswordLength);
-                    }
-                ?>
-            </div>
-        </div>
     </main>
-    
-    
 </body>
 </html>

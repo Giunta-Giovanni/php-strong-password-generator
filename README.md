@@ -28,6 +28,13 @@ __Procedura__
 # Milestone 3 (BONUS)
 Invece di visualizzare la password generata nella stessa pagina (index.php), effettuiamo un redirect ad una seconda pagina (result.php), dedicata proprio a mostrare il risultato. Questa pagina riceverà la password che era stata generata tramite sessione e la mostrerà all’utente.
 
+__Procedura__
+1. Creiamo un file result.php
+2. Creiamo la sessione 
+3. inseriamo all'interno la password generata 
+4. spostiamo il risultato della password generata in quella pagina e mostriamola a schermo
+
+
 
 # Milestone 4 (BONUS)
 Gestire ulteriori parametri nel form per le password, dando la possibilità all’utente di specificare quali set di caratteri possono essere ammessi nella password da generare, tra lettere maiuscole, lettere minuscole, numeri e simboli.

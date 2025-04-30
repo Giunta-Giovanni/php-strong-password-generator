@@ -1,4 +1,3 @@
-<!-- creiamo la funzione per generare password casuale -->
 <?php
 
 //creiamo una funzione generica che mi estrapola un carattere random
@@ -29,7 +28,6 @@ function generatePassword(int $passwordlength){
         elseif($randomselectionChars === 2){
             //inseriamo un carattere maiscolo
             $password .= randomChars($uppercaseChars);
-
         }
         //se il numero casuale è 3
         elseif($randomselectionChars === 3){
