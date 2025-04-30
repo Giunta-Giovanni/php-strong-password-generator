@@ -8,15 +8,29 @@
 
     // settiamo il valore iniziale della variabile 
     $userPasswordLength = 0;
+    $need_lowerletters =false;
+    $need_upperletters =false;
+    $need_numbers =false;
+    $need_symbols =false;
+
 
     // ricaviamoci la lunghezza richiesta dal cliente validandola, e sostituendola nella variabile
     if(isset($_POST['passwordLength']) && is_numeric($_POST['passwordLength']) && $_POST['passwordLength'] >= 4){
         $userPasswordLength = (int) $_POST['passwordLength'];
+
+        $need_lowerletters =isset($_POST['lowerLetters']);
+        $need_upperletters =isset($_POST['upperLetters']);
+        $need_numbers =isset($_POST['number']);
+        $need_symbols =isset($_POST['symbol']);
     };
 
-    $userGeneratedPassword = generatePassword($userPasswordLength);
+    // var_dump($_POST);
 
-    //inseriamo il risultato nella sessione 
+    $userGeneratedPassword = generatePassword($userPasswordLength, $need_lowerletters, $need_upperletters, $need_numbers, $need_symbols );
+
+    // var_dump($userGeneratedPassword);
+    
+    // inseriamo il risultato nella sessione 
     $_SESSION['userGeneratedPassword'] = $userGeneratedPassword;
 
     // se la sessione è stata riempita
@@ -25,14 +39,13 @@
         exit;
     }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
 <body class= "bg-light">
@@ -55,19 +68,19 @@
                     placeholder="Password minima 4 caratteri" 
                     required>
             </div>
-            <div class="row justify-content-center m-3">
-                <div class="col">
-                    <input type="checkbox">
-                    <label for="">letter</label>
-                </div>
-                <div class="col">
-                    <input type="checkbox">
-                    <label for="">number</label>
-                </div>
-                <div class="col">
-                    <input type="checkbox">
-                    <label for="">symbol</label>
-                </div>
+
+            <div class="selection">
+                    <input type="checkbox" id="lowerLetters" name="lowerLetters">
+                    <label for="lowerLetters">lowerLetters</label>
+
+                    <input type="checkbox" id="upperLetters" name="upperLetters">
+                    <label for="upperLetters">upperLetters</label>
+
+                    <input type="checkbox"id="number" name="number">
+                    <label for="number">number</label>
+
+                    <input type="checkbox" id="symbol" name="symbol">
+                    <label for="symbol">symbol</label>
             </div>
 
             <div class="d-grid">
