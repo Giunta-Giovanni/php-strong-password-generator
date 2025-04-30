@@ -1,8 +1,40 @@
 .selection {
     text-align: center;
     margin: 2rem auto;
+    font-family: sans-serif;
+}
+
+.selection input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #555;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    vertical-align: middle;
+    margin-left: 2rem;
+}
+
+.selection input[type="checkbox"]:checked {
+    background-color: #4caf50;
+    border-color: #4caf50;
+}
+
+.selection input[type="checkbox"]:checked::after {
+    content: "✔";
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    top: -2px;
+    left: 3px;
 }
 
 .selection label {
-    padding-right: 2rem;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
 }
