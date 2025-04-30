@@ -64,6 +64,7 @@
                     type="number" 
                     class="form-control" 
                     name="passwordLength" 
+                    value="4"
                     min="4" 
                     placeholder="Password minima 4 caratteri" 
                     required>

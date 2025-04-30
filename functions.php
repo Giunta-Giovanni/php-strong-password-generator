@@ -18,7 +18,7 @@ function generatePassword($passwordlength, $include_lowercaseChars, $include_upp
 
     // include le minuscole nei caratteri selezionati se abilitate
     if($include_lowercaseChars){
-        $selectedChars = $selectedChars . $lowercaseChars;
+        $selectedChars .= $lowercaseChars;
     }
     // include le maiuscole nei caratteri selezionati se abilitate
     if($include_uppercaseChars){
